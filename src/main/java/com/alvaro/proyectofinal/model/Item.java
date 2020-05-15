@@ -5,11 +5,14 @@
  */
 package com.alvaro.proyectofinal.model;
 
+import java.util.Objects;
+
 /**
  *
  * @author Alvaro
  */
 public class Item {
+
     private String name;
     private String description;
     private float modifier;
@@ -43,7 +46,28 @@ public class Item {
     public void setModifier(float modifier) {
         this.modifier = modifier;
     }
-    
-    
-    
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Item other = (Item) obj;
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" + "name=" + name + ", description=" + description + ", modifier=" + modifier + '}';
+    }
+
 }

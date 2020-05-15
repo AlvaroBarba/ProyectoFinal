@@ -14,23 +14,22 @@
             <Font name="DejaVu Sans Bold" size="25.0" />
          </font>
       </Label>
-      <TextField layoutX="233.0" layoutY="93.0" text="Nombre" />
-      <TextField layoutX="233.0" layoutY="124.0" text="Email" />
-      <TextField layoutX="233.0" layoutY="156.0" text="Edad" />
-      <TextField layoutX="233.0" layoutY="188.0" text="Nick" />
-      <PasswordField layoutX="235.0" layoutY="241.0" prefHeight="25.0" prefWidth="149.0" text="password" />
-      <Label contentDisplay="RIGHT" layoutX="264.0" layoutY="224.0" prefHeight="17.0" prefWidth="91.0" text="New Password" textAlignment="CENTER">
+      <TextField fx:id="name" layoutX="233.0" layoutY="93.0" text="Nombre" />
+      <TextField fx:id="email" layoutX="233.0" layoutY="124.0" text="Email" />
+      <TextField fx:id="nick" layoutX="233.0" layoutY="158.0" text="Nick" />
+      <PasswordField fx:id="pass" layoutX="233.0" layoutY="217.0" prefHeight="25.0" prefWidth="149.0" text="password" />
+      <Label contentDisplay="RIGHT" layoutX="264.0" layoutY="200.0" prefHeight="17.0" prefWidth="91.0" text="New Password" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Button layoutX="534.0" layoutY="361.0" mnemonicParsing="false" text="Crear" />
+      <Button layoutX="534.0" layoutY="361.0" mnemonicParsing="false" onAction="#register" text="Crear" />
       <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#switchToLogin" text="Volver" />
-      <Label contentDisplay="RIGHT" layoutX="257.0" layoutY="277.0" prefHeight="17.0" prefWidth="102.0" text="Repeat password" textAlignment="CENTER">
+      <Label contentDisplay="RIGHT" layoutX="257.0" layoutY="249.0" prefHeight="17.0" prefWidth="102.0" text="Repeat password" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <PasswordField layoutX="235.0" layoutY="302.0" prefHeight="25.0" prefWidth="149.0" text="password" />
+      <PasswordField fx:id="rpass" layoutX="234.0" layoutY="266.0" prefHeight="25.0" prefWidth="149.0" text="password" />
    </children>
 </AnchorPane>

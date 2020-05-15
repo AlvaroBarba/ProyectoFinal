@@ -5,6 +5,8 @@
  */
 package com.alvaro.proyectofinal.model;
 
+import java.util.Objects;
+
 /**
  *
  * @author Alvaro
@@ -16,11 +18,20 @@ public class Player extends Person {
     private int score;
     private String password;
 
-    public Player(String nick, String email, String password) {
+    public Player(String nick, String name, String email, String password) {
+        super(name);
         this.nick = nick;
         this.email = email;
         this.score = 0;
         this.password = password;
+    }
+
+    public Player() {
+        super("Default");
+        this.nick = "Default";
+        this.email = "Default";
+        this.score = -1;
+        this.password = "";
     }
 
     public String getNick() {
@@ -61,18 +72,31 @@ public class Player extends Person {
     }
 
     @Override
-    public int getAge() {
-        return super.getAge();
-    }
-
-    @Override
     public void setName(String name) {
         super.setName(name);
     }
 
     @Override
-    public void setAge(int age) {
-        super.setAge(age);
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Player other = (Player) obj;
+        if (!Objects.equals(this.nick, other.nick) && !Objects.equals(this.email, other.email)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" + "nick=" + nick + ", email=" + email + ", score=" + score + ", password=" + password + '}';
     }
 
 }
