@@ -114,13 +114,11 @@ public class PlayerDAO extends Player {
                     String nick = rs.getString("nick");
                     String name = rs.getString("name");
                     String email = rs.getString("email");
-                    int points = rs.getInt("points");
                     String password = rs.getString("password");
                     
                     a.setNick(nick);
                     a.setName(name);
                     a.setEmail(email);
-                    a.setScore(points);
                     a.setPassword(password);
                     
                     players.add(a);
