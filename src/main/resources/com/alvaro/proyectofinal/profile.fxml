@@ -17,12 +17,11 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TableView layoutX="14.0" layoutY="14.0" prefHeight="346.0" prefWidth="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="200.0">
+                  <TableView fx:id="table" layoutX="14.0" layoutY="14.0" prefHeight="346.0" prefWidth="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="200.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="Nombre" />
-                      <TableColumn prefWidth="75.0" text="Edad" />
-                        <TableColumn prefWidth="75.0" text="Email" />
-                        <TableColumn prefWidth="75.0" text="Nick" />
+                      <TableColumn fx:id="nameColumn" prefWidth="75.0" text="Nombre" />
+                        <TableColumn fx:id="nickColumn" prefWidth="75.0" text="Nick" />
+                        <TableColumn fx:id="emailColumn" prefWidth="75.0" text="Email" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -40,29 +39,29 @@
                               <Font name="DejaVu Sans Bold" size="15.0" />
                            </font>
                         </Label>
-                        <PasswordField text="password" />
+                        <PasswordField fx:id="actualpass" promptText="Contraseña" />
                         <Label text="Nueva Contraseña">
                            <font>
                               <Font name="DejaVu Sans Bold" size="15.0" />
                            </font>
                         </Label>
-                        <PasswordField text="password" />
+                        <PasswordField fx:id="newpass" promptText="Contraseña" />
                         <Label text="Repita la Contraseña">
                            <font>
                               <Font name="DejaVu Sans Bold" size="15.0" />
                            </font>
                         </Label>
-                        <PasswordField text="password" />
-                        <Button mnemonicParsing="false" snapToPixel="false" text="Guardar Cambios">
+                        <PasswordField fx:id="rnewpass" promptText="Contraseña" />
+                        <Button mnemonicParsing="false" onAction="#cambiarPass" snapToPixel="false" text="Cambiar contraseña">
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Volver">
+                        <Button mnemonicParsing="false" onAction="#switchToMainMenu" text="Volver">
                            <VBox.margin>
                               <Insets />
                            </VBox.margin></Button>
-                        <Button layoutX="15.0" layoutY="274.0" mnemonicParsing="false" text="Eliminar cuenta" />
+                        <Button layoutX="15.0" layoutY="274.0" mnemonicParsing="false" onAction="#deleteAccount" text="Eliminar cuenta" />
                      </children>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" />

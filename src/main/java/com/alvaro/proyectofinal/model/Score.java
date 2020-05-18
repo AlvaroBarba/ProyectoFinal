@@ -20,6 +20,9 @@ public class Score {
         this.score = score;
     }
 
+    public Score() {
+    }
+
     public String getNick() {
         return nick;
     }

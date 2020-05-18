@@ -26,6 +26,7 @@ public class LoginController {
             if(a.getNick().equals(nick.getText()) && a.getPassword().equals(password.getText())){
                 switchToMainMenu();
                 err = false;
+                PlayerDAO.selected = a;
                 break;
             }
         }

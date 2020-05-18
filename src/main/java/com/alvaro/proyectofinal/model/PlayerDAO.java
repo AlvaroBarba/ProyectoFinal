@@ -5,7 +5,6 @@
  */
 package com.alvaro.proyectofinal.model;
 
-import Utils.ConnectionUtil;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,17 +17,15 @@ import java.util.logging.Logger;
  * @author Alvaro
  */
 public class PlayerDAO extends Player {
-
-    public PlayerDAO() {
-        
-    }
-
+    
+    public static Player selected;
+    
     //Queris
     private static final String insert = "INSERT INTO players (name, nick,"
             + " email, password) VALUES (?, ?, ?, ?)";
-    private static final String update = "update players set ?=? where nick=?";
+    private static final String update = "update players set name=?, nick=?, email=?, password=? where nick=?";
     private static final String obtain = "Select * from players";
-    private static final String delete = "delete * from players where nick=?";
+    private static final String delete = "delete from players where nick=?";
 
     public static boolean insertPlayer(Player a, java.sql.Connection con) {
         boolean insercion = false;
@@ -39,7 +36,7 @@ public class PlayerDAO extends Player {
                 st.setString(1, a.getName());
                 st.setString(2, a.getNick());
                 st.setString(3, a.getEmail());
-                st.setString(4, a.getPassword());
+                st.setString(4, a.getNick());
                 st.executeUpdate();
                 insercion = true;
             } catch (SQLException e) {
@@ -57,31 +54,18 @@ public class PlayerDAO extends Player {
         return insercion;
     }
 
-    public static boolean updatePlayer(Player a, String parameter, java.sql.Connection con) {
+    public static boolean updatePlayer(Player a, java.sql.Connection con) {
         boolean updating = false;
         PreparedStatement st = null;
         if (con != null) {
             try {
                 st = con.prepareStatement(update);
-                st.setString(1, parameter);
-                switch (parameter) {
-                    case "nick":
-                        st.setString(2, a.getNick());
-                        st.setString(3, a.getNick());
-                        break;
-                    case "name":
-                        st.setString(2, a.getName());
-                        st.setString(3, a.getNick());
-                        break;
-                    case "email":
-                        st.setString(2, a.getEmail());
-                        st.setString(3, a.getNick());
-                        break;
-                    case "password":
-                        st.setString(2, a.getPassword());
-                        st.setString(3, a.getNick());
-                        break;
-                }
+                st.setString(1, a.getName());
+                st.setString(2, a.getNick());
+                st.setString(3, a.getEmail());
+                st.setString(4, a.getPassword());
+                st.setString(5, a.getNick());
+                
                 st.executeUpdate();
                 updating = true;
             } catch (SQLException e) {
@@ -146,7 +130,7 @@ public class PlayerDAO extends Player {
             try {
                 st = con.prepareStatement(delete);
                 st.setString(1, nick);
-                st.executeQuery();
+                st.executeUpdate();
                 del = true;
             } catch (SQLException e) {
                 Logger.getLogger(PlayerDAO.class.getName()).log(Level.SEVERE, null, e);

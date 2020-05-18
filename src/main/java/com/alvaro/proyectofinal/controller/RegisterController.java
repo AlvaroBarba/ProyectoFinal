@@ -29,6 +29,7 @@ public class RegisterController {
     private void register() throws IOException {
         boolean result = false;
         Connection con = null;
+        Player a = null;
         try{
             con = ConnectionUtil.getConnection();
         }catch(Exception e){
@@ -44,10 +45,11 @@ public class RegisterController {
             showWarning("Error", "Contraseñas no coinciden",
                     "Vuelva a escribir las contraseñas, gracias");
         }else {
-            Player a = new Player(n, na, e, p);
+            a = new Player(n, na, e, p);
             result = (PlayerDAO.insertPlayer(a, con));
         }
         if(result){
+            PlayerDAO.selected = a;
             App.setRoot("mainMenu");
         }else{
             showWarning("Error", "No se ha podido crear el usuario", "Intentelo más tarde");
