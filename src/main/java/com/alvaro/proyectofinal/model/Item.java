@@ -23,6 +23,12 @@ public class Item {
         this.modifier = modifier;
     }
 
+    public Item() {
+        this.name = "Default";
+        this.description = "Default";
+        this.modifier = 0f;
+    }
+    
     public String getName() {
         return name;
     }

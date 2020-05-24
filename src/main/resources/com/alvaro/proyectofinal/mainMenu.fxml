@@ -10,9 +10,9 @@
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alvaro.proyectofinal.controller.MainMenuController">
    <children>
       <Button layoutX="268.0" layoutY="112.0" mnemonicParsing="false" onAction="#switchToCharacterSelect" text="Empezar!" AnchorPane.leftAnchor="268.0" AnchorPane.topAnchor="112.0" />
-      <Button layoutX="238.0" layoutY="153.0" mnemonicParsing="false" text="Tabla de Puntuación" AnchorPane.leftAnchor="238.0" AnchorPane.topAnchor="153.0" />
+      <Button layoutX="238.0" layoutY="153.0" mnemonicParsing="false" onAction="#switchToLeaderboard" text="Tabla de Puntuación" AnchorPane.leftAnchor="238.0" AnchorPane.topAnchor="153.0" />
       <Button layoutX="228.0" layoutY="243.0" mnemonicParsing="false" onAction="#switchToLogin" text="Volver a Inicio de Sesión" AnchorPane.leftAnchor="228.0" AnchorPane.topAnchor="243.0" />
-      <Button layoutX="252.0" layoutY="290.0" mnemonicParsing="false" text="Salir del Juego " AnchorPane.leftAnchor="252.0" AnchorPane.topAnchor="290.0" />
+      <Button layoutX="252.0" layoutY="290.0" mnemonicParsing="false" onAction="#exit" text="Salir del Juego " AnchorPane.leftAnchor="252.0" AnchorPane.topAnchor="290.0" />
       <ToolBar layoutY="14.0" prefHeight="40.0" prefWidth="622.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <Button mnemonicParsing="false" onAction="#switchToProfile" text="Mi Perfil" />
@@ -26,6 +26,6 @@
             </Label>
         </items>
       </ToolBar>
-      <Button layoutX="229.0" layoutY="200.0" mnemonicParsing="false" text="Información de Objetos" />
+      <Button layoutX="229.0" layoutY="200.0" mnemonicParsing="false" onAction="#switchToObjInfo" text="Información de Objetos" />
    </children>
 </AnchorPane>

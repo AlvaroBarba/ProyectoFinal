@@ -36,7 +36,7 @@ public class PlayerDAO extends Player {
                 st.setString(1, a.getName());
                 st.setString(2, a.getNick());
                 st.setString(3, a.getEmail());
-                st.setString(4, a.getNick());
+                st.setString(4, a.getPassword());
                 st.executeUpdate();
                 insercion = true;
             } catch (SQLException e) {

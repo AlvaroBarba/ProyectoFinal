@@ -8,6 +8,8 @@ package com.alvaro.proyectofinal.controller;
 import com.alvaro.proyectofinal.App;
 import com.alvaro.proyectofinal.model.Item;
 import com.alvaro.proyectofinal.model.ItemDAO;
+import com.alvaro.proyectofinal.model.Score;
+import com.alvaro.proyectofinal.model.ScoreDAO;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -21,44 +23,40 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 /**
- * FXML Controller class
  *
  * @author Alvaro
  */
-public class ItemInfoController implements Initializable {
+public class PointsTableController implements Initializable{
+    
+     @FXML
+    private TableView<Score> table;
+    @FXML
+    private TableColumn<Score, String> nickColumn;
+    @FXML
+    private TableColumn<Score, Integer> pointsColumn;
 
-    @FXML
-    private TableView<Item> table;
-    @FXML
-    private TableColumn<Item, String> nameColumn;
-    @FXML
-    private TableColumn<Item, String> descColumn;
-
-    private ObservableList<Item> data;
+    private ObservableList<Score> data;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Connection con = Utils.ConnectionUtil.getConnection();
         this.data = FXCollections.observableArrayList();
-        data.addAll(ItemDAO.getItems(con));
+        data.addAll(ScoreDAO.getScoreOrder(con));
 
-        this.nameColumn.setCellValueFactory(eachRowData -> {
-            return new SimpleObjectProperty<>(eachRowData.getValue().getName());
+        this.nickColumn.setCellValueFactory(eachRowData -> {
+            return new SimpleObjectProperty<>(eachRowData.getValue().getNick());
         });
-        this.descColumn.setCellValueFactory(eachRowData -> {
-            return new SimpleObjectProperty<>(eachRowData.getValue().getDescription());
+        this.pointsColumn.setCellValueFactory(eachRowData -> {
+            return new SimpleObjectProperty<>(eachRowData.getValue().getScore());
         });
 
-        
-        table.setEditable(true);
-        //Indico que info tiene que renderizar la tabla
         table.setItems(data);
 
     }
-
+    
     @FXML
     private void switchToMainMenu() throws IOException {
         App.setRoot("mainMenu");
     }
-
+    
 }

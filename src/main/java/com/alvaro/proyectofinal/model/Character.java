@@ -25,6 +25,12 @@ public class Character {
         this.health = health;
     }
 
+    public Character() {
+        this.name = "Default";
+        this.damage = 0;
+        this.item = null;
+        this.health = 0;        
+    }
     public String getName() {
         return name;
     }

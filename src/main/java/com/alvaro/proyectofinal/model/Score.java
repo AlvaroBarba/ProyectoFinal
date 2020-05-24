@@ -12,6 +12,7 @@ import java.util.Objects;
  * @author Alvaro
  */
 public class Score {
+
     private String nick;
     private int score;
 
@@ -21,6 +22,8 @@ public class Score {
     }
 
     public Score() {
+        this.nick = "Default";
+        this.score = 0;
     }
 
     public String getNick() {
@@ -65,7 +68,5 @@ public class Score {
         }
         return true;
     }
-    
-   
-    
+
 }

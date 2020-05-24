@@ -6,7 +6,11 @@ import javafx.fxml.FXML;
 import com.alvaro.proyectofinal.App;
 import com.alvaro.proyectofinal.model.Player;
 import com.alvaro.proyectofinal.model.PlayerDAO;
+import com.alvaro.proyectofinal.model.Score;
+import com.alvaro.proyectofinal.model.ScoreDAO;
 import java.sql.Connection;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -45,11 +49,14 @@ public class RegisterController {
             showWarning("Error", "Contraseñas no coinciden",
                     "Vuelva a escribir las contraseñas, gracias");
         }else {
+            System.out.println("nick: "+n+", nombre: "+na+", email"+e+", contraseña"+p);
             a = new Player(n, na, e, p);
             result = (PlayerDAO.insertPlayer(a, con));
         }
         if(result){
             PlayerDAO.selected = a;
+            Score aux = new Score(a, 0);
+            ScoreDAO.insertScore(aux, con);
             App.setRoot("mainMenu");
         }else{
             showWarning("Error", "No se ha podido crear el usuario", "Intentelo más tarde");

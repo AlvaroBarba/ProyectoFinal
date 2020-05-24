@@ -14,14 +14,14 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
                   <Button layoutX="14.0" layoutY="336.0" mnemonicParsing="false" onAction="#switchToMainMenu" text="Volver al menú" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="14.0" />
-                  <Button layoutX="536.0" layoutY="333.0" mnemonicParsing="false" text="Seleccionar" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" />
-                  <TableView editable="true" layoutX="8.0" layoutY="13.0" prefHeight="373.0" prefWidth="598.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Button layoutX="536.0" layoutY="333.0" mnemonicParsing="false" onAction="#selectCharacter" text="Continuar" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" />
+                  <TableView fx:id="table" editable="true" layoutX="8.0" layoutY="13.0" prefHeight="373.0" prefWidth="598.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
-                      <TableColumn prefWidth="79.99999845027924" text="Nombre" />
-                        <TableColumn prefWidth="89.00003814697266" text="Salud" />
-                      <TableColumn prefWidth="76.0" text="Daño" />
-                        <TableColumn prefWidth="135.0" text="Objeto de Inicio" />
-                        <TableColumn maxWidth="1.7976931348623157E308" prefWidth="195.19996948242192" text="Descripción del Objeto" />
+                      <TableColumn fx:id="nameColumn" prefWidth="79.99999845027924" text="Nombre" />
+                        <TableColumn fx:id="healthColumn" prefWidth="89.00003814697266" text="Salud" />
+                      <TableColumn fx:id="damageColumn" prefWidth="76.0" text="Daño" />
+                        <TableColumn fx:id="itemColumn" prefWidth="135.0" text="Objeto de Inicio" />
+                        <TableColumn fx:id="descColumn" maxWidth="1.7976931348623157E308" prefWidth="195.19996948242192" text="Descripción del Objeto" />
                     </columns>
                   </TableView>
                </children>

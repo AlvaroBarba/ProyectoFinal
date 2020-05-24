@@ -15,14 +15,12 @@ public class Player extends Person {
 
     private String nick;
     private String email;
-    private int score;
     private String password;
 
     public Player(String nick, String name, String email, String password) {
         super(name);
         this.nick = nick;
         this.email = email;
-        this.score = 0;
         this.password = password;
     }
 
@@ -30,7 +28,6 @@ public class Player extends Person {
         super("Default");
         this.nick = "Default";
         this.email = "Default";
-        this.score = -1;
         this.password = "";
     }
 
@@ -48,14 +45,6 @@ public class Player extends Person {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
     }
 
     public String getPassword() {
@@ -96,7 +85,7 @@ public class Player extends Person {
 
     @Override
     public String toString() {
-        return "Player{" + "nick=" + nick + ", email=" + email + ", score=" + score + ", password=" + password + '}';
+        return "Player{" + "nick=" + nick + ", email=" + email + ", password=" + password + '}';
     }
 
 }

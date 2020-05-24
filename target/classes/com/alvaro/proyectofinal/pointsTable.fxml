@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alvaro.proyectofinal.controller.PointsTableController">
    <children>
       <BorderPane layoutX="191.0" layoutY="73.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -20,10 +19,10 @@
             </Label>
          </top>
          <center>
-            <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn prefWidth="75.0" text="Alias" />
-                <TableColumn prefWidth="75.0" text="Puntuación" />
+                <TableColumn fx:id="nickColumn" prefWidth="75.0" text="Alias" />
+                <TableColumn fx:id="pointsColumn" prefWidth="75.0" text="Puntuación" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -31,7 +30,7 @@
             </TableView>
          </center>
          <bottom>
-            <Button contentDisplay="RIGHT" mnemonicParsing="false" text="Volver" BorderPane.alignment="CENTER_LEFT">
+            <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#switchToMainMenu" text="Volver" BorderPane.alignment="CENTER_LEFT">
                <font>
                   <Font name="DejaVu Sans Bold" size="12.0" />
                </font>
