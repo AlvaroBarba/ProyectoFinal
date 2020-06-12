@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <CONNECTION>
-	<host>192.168.1.171</host>
+	<host>192.168.0.112</host>
 	<db>Proyecto</db>
 	<user>alvaro</user>
 	<password>root</password>

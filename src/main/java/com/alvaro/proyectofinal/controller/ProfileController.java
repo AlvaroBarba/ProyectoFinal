@@ -12,7 +12,6 @@ import com.alvaro.proyectofinal.model.ScoreDAO;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
-import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
@@ -96,7 +95,6 @@ public class ProfileController implements Initializable {
         }
         );
         table.setEditable(true);
-        //Indico que info tiene que renderizar la tabla
         table.setItems(data);
 
     }

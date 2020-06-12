@@ -35,12 +35,19 @@ public class ItemInfoController implements Initializable {
     private TableColumn<Item, String> descColumn;
 
     private ObservableList<Item> data;
+    private ObservableList<Item> show;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Connection con = Utils.ConnectionUtil.getConnection();
         this.data = FXCollections.observableArrayList();
+        this.show = FXCollections.observableArrayList();
         data.addAll(ItemDAO.getItems(con));
+        for(Item i : data){
+            if(!i.getName().equals("Default")){
+                show.add(i);
+            }
+        }
 
         this.nameColumn.setCellValueFactory(eachRowData -> {
             return new SimpleObjectProperty<>(eachRowData.getValue().getName());
@@ -51,8 +58,7 @@ public class ItemInfoController implements Initializable {
 
         
         table.setEditable(true);
-        //Indico que info tiene que renderizar la tabla
-        table.setItems(data);
+        table.setItems(show);
 
     }
 

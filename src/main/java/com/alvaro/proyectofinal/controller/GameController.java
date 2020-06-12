@@ -51,7 +51,6 @@ public class GameController implements Initializable {
     private ObservableList<Game> show;
 
     private Game partida = new Game(PlayerDAO.selected, CharacterDAO.choose, 0);
-    
 
     /**
      * Initializes the controller class.
@@ -59,7 +58,6 @@ public class GameController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Connection con = Utils.ConnectionUtil.getConnection();
-        GameDAO.insertGame(partida.getPlayer(), partida.getCharacter(), 0, con);
         this.data = FXCollections.observableArrayList();
         this.show = FXCollections.observableArrayList();
         data.addAll(GameDAO.getGame(con));
@@ -90,7 +88,6 @@ public class GameController implements Initializable {
 
     @FXML
     private void iniMatch() throws InterruptedException, IOException {
-        Connection con = Utils.ConnectionUtil.getConnection();
         String welcome = "Bienvenido a la mazmorra\n"
                 + "¿Estás preparado para enfrentarte a tus peores pesadillas?";
         Text Twelcome = new Text(welcome);
@@ -123,16 +120,16 @@ public class GameController implements Initializable {
             TgameText = new Text(gameText);
             TFaux.getChildren().add(TgameText);
             partida.setGame_score(10);
-            GameDAO.updateGame(partida, con);
+            GameDAO.insertGame(partida.getPlayer(), partida.getCharacter(), partida.getGame_score(), con);
         } else {
             gameText = "Has perdido, prueba otra vez cuando te atrevas";
             TgameText = new Text(gameText);
             TFaux.getChildren().add(TgameText);
             partida.setGame_score(0);
-            GameDAO.updateGame(partida, con);
+            GameDAO.insertGame(partida.getPlayer(), partida.getCharacter(), partida.getGame_score(), con);
         }
     }
-    
+
     private Score hasScore(String nick) {
         Connection con = Utils.ConnectionUtil.getConnection();
         Score result = null;
@@ -159,8 +156,7 @@ public class GameController implements Initializable {
             health -= inGame.getDamage();
             gameText = "Ataque con éxito\n"
                     + "Enemigo:\n"
-                    + "Salud = " + health + "\n"
-                    + "Daño= " + damage + "\n";
+                    + "Salud = " + health + "\n";
             TgameText = new Text(gameText);
             TFaux.getChildren().add(TgameText);
         } else if (playerAccuracy > 75 && inGame.getHealth() > 0) {
